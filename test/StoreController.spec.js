@@ -7,4 +7,8 @@ describe('StoreController', function() {
     ctrl = $controller('StoreController');
   }));
 
+  it ('store initialises with data from JSON object', function(){
+    expect(ctrl.allProducts).toContain('Almond Toe Court Shoes');
+  });
+
 });

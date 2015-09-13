@@ -11,7 +11,12 @@
   </head>
 
   <body>
-    <div>
+    <h1>My Store</h1>
+    <div ng-controller='StoreController as storeCtrl'>
+      <ul ng-repeat='product in storeCtrl.allProducts'>
+        <li>{{product.name}}</li>
+        <li>{{product.price}}</li>
+      </ul>
     </div>
   </body>
 </html>

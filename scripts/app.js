@@ -1,8 +1,13 @@
 var app = angular.module('storeFront', ['ngResource']);
 
-app.controller('StoreController', function(){
+app.controller('StoreController', [ '$http', function($http){
+  var store = this;
+  store.allProducts = [ ];
 
-});
+  $http.get('storeProducts.json').success(function(data){
+    store.allProducts = data;
+  });
+}]);
 
 app.controller('CartController', function(){
   this.shoppingCart = [];
