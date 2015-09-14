@@ -20,7 +20,7 @@
             <p>My Shopping Cart</p>
             <ul>
               <li ng-repeat='item in cartCtrl.shoppingCart track by $index'>{{item.name}} {{item.price | currency:'£'}}
-                <button ng-click='cartCtrl.removeFromCart(item.name)'>Remove</button>
+                <button class='rmv-btn' ng-click='cartCtrl.removeFromCart(item.name)'>Remove</button>
               </li>
             </ul>
             <div id='cart-total'>{{cartCtrl.cartTotal | currency:'£'}}</div>

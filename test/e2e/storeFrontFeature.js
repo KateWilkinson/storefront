@@ -34,4 +34,20 @@ describe('Store Front', function() {
     element(by.id('shopping-cart')).click();
     expect(element(by.id('cart-total')).getText()).toEqual('£99.00');
   });
+
+  it('removes item from shopping cart when remove button is clicked', function(){
+    var cart = element.all(by.repeater('item in cartCtrl.shoppingCart track by $index'));
+    element(by.css('.add-btn')).click();
+    element(by.id('shopping-cart')).click();
+    element(by.css('.rmv-btn')).click();
+    expect(cart.count()).toEqual(0);
+  });
+
+  it('updates the total price of the shopping cart when an item is removed',function(){
+    element(by.css('.add-btn')).click();
+    element(by.id('shopping-cart')).click();
+    element(by.css('.rmv-btn')).click();
+    expect(element(by.id('cart-total')).getText()).toEqual('£0.00');
+  });
+
 });
