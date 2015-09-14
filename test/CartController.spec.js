@@ -42,4 +42,5 @@ describe('CartController', function() {
     expect(ctrl.cartTotal).toEqual(0.00);
   });
 
+
 });

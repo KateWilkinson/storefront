@@ -7,20 +7,26 @@ app.controller('StoreController', [ '$http', function($http){
   $http.get('storeProducts.json').success(function(data){
     store.allProducts = data;
   });
+
+  this.showCart = function(){
+    if(store.show){
+      store.show = false;
+    } else {
+      store.show = true;
+    }
+  };
 }]);
 
 app.controller('CartController', function(){
   this.shoppingCart = [];
-
-  var cart = this.shoppingCart;
-
   this.cartTotal = 0;
-  
-  self = this;
+  var cart = this.shoppingCart;
+  var self = this;
 
   this.addToCart = function(item){
     cart.push(item);
     self.updateCartTotal();
+    console.log(self.shoppingCart);
   };
 
   this.removeFromCart = function(item){
@@ -33,11 +39,12 @@ app.controller('CartController', function(){
   };
 
   this.updateCartTotal = function() {
-    var sum = 0;
+    var total = 0;
     for(var i = 0; i < cart.length; i++) {
-      sum = sum + cart[i].price;
+      total = total + cart[i].price;
     }
-    self.cartTotal = sum;
+    self.cartTotal = total;
   };
+
 
 });

@@ -13,10 +13,23 @@
   <body>
     <h1>My Store</h1>
     <div ng-controller='StoreController as storeCtrl'>
-      <ul ng-repeat='product in storeCtrl.allProducts'>
-        <li>{{product.name}}</li>
-        <li>{{product.price | currency:'£'}}</li>
-      </ul>
+      <div ng-controller='CartController as cartCtrl'>
+        <input type='button' value='Cart' ng-click='storeCtrl.showCart()'></input>
+        <div ng-show='storeCtrl.show'>
+          <div>
+            <p>My Shopping Cart</p>
+            <ul>
+              <li ng-repeat='item in cartCtrl.shoppingCart'>{{item.name}} {{item.price | currency:'£'}}</li>
+            </ul>
+            <div>{{cartCtrl.cartTotal | currency:'£'}}</div>
+          </div>
+        </div>
+        <ul ng-repeat='product in storeCtrl.allProducts'>
+          <li>{{product.name}}</li>
+          <li>{{product.price | currency:'£'}}</li>
+          <li><button>Add To Cart</button></li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
