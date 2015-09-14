@@ -12,12 +12,10 @@ describe('CartController', function() {
   });
 
   describe('add to cart', function() {
-
     it('adds selected item to the shopping cart array', function() {
       ctrl.addToCart({name:'Mohair cardigan', price: 30.00});
       expect(ctrl.shoppingCart[0].name).toEqual('Mohair cardigan');
     });
-
   });
 
   describe('remove from cart', function() {

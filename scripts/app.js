@@ -26,7 +26,6 @@ app.controller('CartController', function(){
   this.addToCart = function(item){
     cart.push(item);
     self.updateCartTotal();
-    console.log(self.shoppingCart);
   };
 
   this.removeFromCart = function(item){

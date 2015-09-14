@@ -14,20 +14,22 @@
     <h1>My Store</h1>
     <div ng-controller='StoreController as storeCtrl'>
       <div ng-controller='CartController as cartCtrl'>
-        <input type='button' value='Cart' ng-click='storeCtrl.showCart()'></input>
+        <input type='button' id='shopping-cart' value='Cart' ng-click='storeCtrl.showCart()'></input>
         <div ng-show='storeCtrl.show'>
           <div>
             <p>My Shopping Cart</p>
             <ul>
-              <li ng-repeat='item in cartCtrl.shoppingCart'>{{item.name}} {{item.price | currency:'£'}}</li>
+              <li ng-repeat='item in cartCtrl.shoppingCart track by $index'>{{item.name}} {{item.price | currency:'£'}}
+                <button ng-click='cartCtrl.removeFromCart(item.name)'>Remove</button>
+              </li>
             </ul>
-            <div>{{cartCtrl.cartTotal | currency:'£'}}</div>
+            <div id='cart-total'>{{cartCtrl.cartTotal | currency:'£'}}</div>
           </div>
         </div>
         <ul ng-repeat='product in storeCtrl.allProducts'>
           <li>{{product.name}}</li>
           <li>{{product.price | currency:'£'}}</li>
-          <li><button>Add To Cart</button></li>
+          <li><button class='add-btn' ng-click='cartCtrl.addToCart(product)'>Add To Cart</button></li>
         </ul>
       </div>
     </div>
