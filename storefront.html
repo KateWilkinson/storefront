@@ -15,7 +15,7 @@
     <div ng-controller='StoreController as storeCtrl'>
       <ul ng-repeat='product in storeCtrl.allProducts'>
         <li>{{product.name}}</li>
-        <li>{{product.price}}</li>
+        <li>{{product.price | currency:'£'}}</li>
       </ul>
     </div>
   </body>

@@ -17,6 +17,7 @@ describe('CartController', function() {
       ctrl.addToCart({name:'Mohair cardigan', price: 30.00});
       expect(ctrl.shoppingCart[0].name).toEqual('Mohair cardigan');
     });
+
   });
 
   describe('remove from cart', function() {
@@ -27,6 +28,18 @@ describe('CartController', function() {
       ctrl.removeFromCart('Mohair cardigan');
       expect(ctrl.shoppingCart).toEqual([{name:'Leather skirt', price: 40.00}, {name:'Striped Tee', price: 20.00}]);
     });
+  });
+
+  it('displays a total price for all items currently in the cart', function() {
+    ctrl.addToCart({name:'Mohair cardigan', price: 30.00});
+    ctrl.addToCart({name:'Leather skirt', price: 40.00});
+    expect(ctrl.cartTotal).toEqual(70.00);
+  });
+
+  it('corrects total price when an item is removed from the cart', function() {
+    ctrl.addToCart({name:'Mohair cardigan', price: 30.00});
+    ctrl.removeFromCart('Mohair cardigan');
+    expect(ctrl.cartTotal).toEqual(0.00);
   });
 
 });

@@ -14,8 +14,13 @@ app.controller('CartController', function(){
 
   var cart = this.shoppingCart;
 
+  this.cartTotal = 0;
+  
+  self = this;
+
   this.addToCart = function(item){
     cart.push(item);
+    self.updateCartTotal();
   };
 
   this.removeFromCart = function(item){
@@ -24,6 +29,15 @@ app.controller('CartController', function(){
         cart.splice(i, 1);
       }
     }
+    self.updateCartTotal();
+  };
+
+  this.updateCartTotal = function() {
+    var sum = 0;
+    for(var i = 0; i < cart.length; i++) {
+      sum = sum + cart[i].price;
+    }
+    self.cartTotal = sum;
   };
 
 });

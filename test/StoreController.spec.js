@@ -7,34 +7,38 @@ describe('StoreController', function() {
     ctrl = $controller('StoreController');
   }));
 
+  it('initialises with an empty array for products', function(){
+    expect(ctrl.allProducts).toEqual([ ]);
+  });
+
   var httpBackend;
 
   beforeEach(inject(function($httpBackend) {
-
     httpBackend = $httpBackend;
     httpBackend
-      .when("GET", 'file:///Users/Kate/TechTests/storefront/storefront.html')
+      .expectGET("storeProducts.json")
       .respond(
-        { items: items }
-      );
+        products
+        );
   }));
 
-  var items = [
+  var products = [
     {
-      name: 'Faux Fur Coat',
-      price: 30.00,
-      category: "Women's Coats",
-      quantity: 5
+      "name":"Almond Toe Court Shoes, Patent Black",
+      "category":"Women's Footwear",
+      "price":99.00,
+      "quantity":5
     },
     {
-      name: 'Black Dress',
-      price: 40.00,
-      category: "Women's Formalwear",
-      quantity: 10
+      "name":"Suede Shoes, Blue",
+      "category":"Women's Footwear",
+      "price":42.00,
+      "quantity":4
     }
   ];
 
-  it('displays items', function() {
-    expect(ctrl.allProducts).toEqual(items);
+  it('completes a http request to JSON and pulls objects into products array', function() {
+    httpBackend.flush();
+    expect(ctrl.allProducts).toEqual(products);
   });
 });
