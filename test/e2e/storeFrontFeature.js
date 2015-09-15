@@ -63,4 +63,14 @@ describe('Store Front', function() {
     expect(element(by.id('cart-total')).getText()).toEqual('£94.00');
   });
 
+  it('discount cannot be applied twice', function(){
+    element(by.id('shopping-cart')).click();
+    element(by.css('.add-btn')).click();
+    element(by.id('voucher-input')).sendKeys('DISCOUNT5');
+    element(by.css('.voucher-btn')).click();
+    element(by.id('voucher-input')).sendKeys('DISCOUNT5');
+    element(by.css('.voucher-btn')).click();
+    expect(element(by.id('cart-total')).getText()).toEqual('£94.00');
+  });
+
 });

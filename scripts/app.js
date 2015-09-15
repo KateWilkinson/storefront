@@ -20,18 +20,19 @@ app.controller('StoreController', [ '$http', function($http){
 app.controller('CartController', function(){
   this.shoppingCart = [];
   this.cartTotal = 0;
-  var cart = this.shoppingCart;
+  
   var self = this;
+  var discounted = false;
 
   this.addToCart = function(item){
-    cart.push(item);
+    self.shoppingCart.push(item);
     self.updateCartTotal();
   };
 
   this.removeFromCart = function(item){
-    for(var i = 0; i < cart.length; i++) {
-      if(cart[i].name === item) {
-        cart.splice(i, 1);
+    for(var i = 0; i < self.shoppingCart.length; i++) {
+      if(self.shoppingCart[i].name === item) {
+        self.shoppingCart.splice(i, 1);
       }
     }
     self.updateCartTotal();
@@ -39,23 +40,28 @@ app.controller('CartController', function(){
 
   this.updateCartTotal = function() {
     var total = 0;
-    for(var i = 0; i < cart.length; i++) {
-      total = total + cart[i].price;
+    for(var i = 0; i < self.shoppingCart.length; i++) {
+      total = total + self.shoppingCart[i].price;
     }
     self.cartTotal = total;
   };
 
   this.applyDiscount = function(code) {
-    if(code === 'DISCOUNT5'){
-      self.cartTotal = self.cartTotal - 5;
-    }
-    if(code === 'DISCOUNT10' && self.cartTotal > 50){
-      self.cartTotal = self.cartTotal - 10;
-    }
-    if(code === 'DISCOUNT15' && self.cartTotal > 75){
-      for(var i = 0; i < cart.length; i++) {
-        if(/footwear/i.test(cart[i].category)) {
-          self.cartTotal = self.cartTotal - 15;
+    if(!discounted){
+      if(code === 'DISCOUNT5'){
+        self.cartTotal = self.cartTotal - 5;
+        discounted = true;
+      }
+      if(code === 'DISCOUNT10' && self.cartTotal > 50){
+        self.cartTotal = self.cartTotal - 10;
+        discounted = true;
+      }
+      if(code === 'DISCOUNT15' && self.cartTotal > 75){
+        for(var i = 0; i < self.shoppingCart.length; i++) {
+          if(/footwear/i.test(self.shoppingCart[i].category)) {
+            self.cartTotal = self.cartTotal - 15;
+            discounted = true;
+          }
         }
       }
     }

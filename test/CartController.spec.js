@@ -110,10 +110,10 @@ describe('CartController', function() {
     it('does not apply a discount if a discount has already successfully been applied', function(){
       ctrl.addToCart({name:'Mohair cardigan', price: 30.00, category:"Women's casualwear"});
       ctrl.addToCart({name:'Leather skirt', price: 40.00, category:"Women's casualwear"});
-      ctrl.addToCart({name:'Gold sandals', price: 20.00, category:"Women's footwear"});
+      ctrl.addToCart({name:'Gold sandals', price: 40.00, category:"Women's footwear"});
       ctrl.applyDiscount('DISCOUNT15');
       ctrl.applyDiscount('DISCOUNT15');
-      expect(ctrl.cartTotal).toEqual(75.00);
+      expect(ctrl.cartTotal).toEqual(95.00);
     });
   });
 
