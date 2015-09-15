@@ -20,7 +20,7 @@ describe('Store Front', function() {
 
   it('displays shopping cart when the cart button is clicked', function(){
     element(by.id('shopping-cart')).click();
-    expect(element(by.id('cart-total')).isPresent()).toBeTruthy();
+    expect(element(by.id('cart-total')).isDisplayed()).toEqual(true);
   });
 
   it('adds item to shopping cart when add to cart button is clicked', function(){
@@ -48,6 +48,19 @@ describe('Store Front', function() {
     element(by.id('shopping-cart')).click();
     element(by.css('.rmv-btn')).click();
     expect(element(by.id('cart-total')).getText()).toEqual('£0.00');
+  });
+
+  it('has an input field for entering discount vouchers', function(){
+    element(by.id('shopping-cart')).click();
+    expect(element(by.id('voucher-input')).isDisplayed()).toEqual(true);
+  });
+
+  it('discount voucher can be applied and total price will be updated', function(){
+    element(by.id('shopping-cart')).click();
+    element(by.css('.add-btn')).click();
+    element(by.id('voucher-input')).sendKeys('DISCOUNT5');
+    element(by.css('.voucher-btn')).click();
+    expect(element(by.id('cart-total')).getText()).toEqual('£94.00');
   });
 
 });

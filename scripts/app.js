@@ -45,5 +45,21 @@ app.controller('CartController', function(){
     self.cartTotal = total;
   };
 
+  this.applyDiscount = function(code) {
+    if(code === 'DISCOUNT5'){
+      self.cartTotal = self.cartTotal - 5;
+    }
+    if(code === 'DISCOUNT10' && self.cartTotal > 50){
+      self.cartTotal = self.cartTotal - 10;
+    }
+    if(code === 'DISCOUNT15' && self.cartTotal > 75){
+      for(var i = 0; i < cart.length; i++) {
+        if(/footwear/i.test(cart[i].category)) {
+          self.cartTotal = self.cartTotal - 15;
+        }
+      }
+    }
+  };
+
 
 });

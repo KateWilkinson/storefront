@@ -23,6 +23,10 @@
                 <button class='rmv-btn' ng-click='cartCtrl.removeFromCart(item.name)'>Remove</button>
               </li>
             </ul>
+            <form ng-submit='cartCtrl.applyDiscount(code)'>
+              <input ng-model='code' type='text' placeholder='enter discount code' id='voucher-input'></input>
+              <input type='submit' class='voucher-btn' value='apply discount'></input>
+            </form>
             <div id='cart-total'>{{cartCtrl.cartTotal | currency:'£'}}</div>
           </div>
         </div>
