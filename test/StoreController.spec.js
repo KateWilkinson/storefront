@@ -41,5 +41,5 @@ describe('StoreController', function() {
     httpBackend.flush();
     expect(ctrl.allProducts).toEqual(products);
   });
-  
+
 });

@@ -2,15 +2,18 @@ describe('CartController', function() {
   beforeEach(module('storeFront'));
 
   var ctrl;
-  var cardigan = {name:'Mohair cardigan', price: 30.00, quantity: 5, category:"Women's casualwear"};
-  var skirt = {name:'Leather skirt', price: 40.00, quantity: 5, category:"Women's casualwear"};
-  var tshirt = {name:'Striped Tee', price: 20.00, quantity: 5, category:"Women's casualwear"};
-  var dress = {name:'Black dress', price: 50.00, quantity: 0, category:"Women's casualwear"};
-  var sandals = {name:'Gold sandals', price: 20.00, quantity: 5, category:"Women's footwear"};
 
   beforeEach(inject(function($controller) {
     ctrl = $controller('CartController');
   }));
+
+  beforeEach(function(){
+    cardigan = {name:'Mohair cardigan', price: 30.00, quantity: 5, category:"Women's casualwear"};
+    skirt = {name:'Leather skirt', price: 40.00, quantity: 5, category:"Women's casualwear"};
+    tshirt = {name:'Striped Tee', price: 20.00, quantity: 5, category:"Women's casualwear"};
+    dress = {name:'Black dress', price: 50.00, quantity: 0, category:"Women's casualwear"};
+    sandals = {name:'Gold sandals', price: 20.00, quantity: 5, category:"Women's footwear"};
+  });
 
   it('initialises with an empty shopping cart', function() {
     expect(ctrl.shoppingCart).toEqual([]);
@@ -32,8 +35,23 @@ describe('CartController', function() {
       ctrl.addToCart(cardigan);
       ctrl.addToCart(skirt);
       ctrl.addToCart(tshirt);
-      ctrl.removeFromCart(cardigan.name);
-      expect(ctrl.shoppingCart).toEqual([{name:'Leather skirt', price: 40.00, quantity: 5, category:"Women's casualwear"}, {name:'Striped Tee', price: 20.00, quantity: 5, category:"Women's casualwear"}]);
+      var cardiganIndex = 0;
+      ctrl.removeFromCart(cardiganIndex);
+      expect(ctrl.shoppingCart).toEqual([{name:'Leather skirt', price: 40.00, quantity: 4, category:"Women's casualwear"}, {name:'Striped Tee', price: 20.00, quantity: 4, category:"Women's casualwear"}]);
+    });
+  });
+
+  describe('stock update', function() {
+    it('decreases the stock level of an item when it is added to the shopping cart', function() {
+      ctrl.addToCart(cardigan);
+      expect(cardigan.quantity).toEqual(4);
+    });
+
+    it('increases the stock level of an item when it is removed from the shopping cart', function() {
+      ctrl.addToCart(cardigan);
+      var cardiganIndex = 0;
+      ctrl.removeFromCart(cardiganIndex);
+      expect(cardigan.quantity).toEqual(5);
     });
   });
 
@@ -48,7 +66,8 @@ describe('CartController', function() {
   describe('update cart total', function(){
     it('corrects total price when an item is removed from the cart', function() {
       ctrl.addToCart(cardigan);
-      ctrl.removeFromCart(cardigan.name);
+      var cardiganIndex = 0;
+      ctrl.removeFromCart(cardiganIndex);
       expect(ctrl.cartTotal).toEqual(0.00);
     });
   });
@@ -124,7 +143,6 @@ describe('CartController', function() {
       ctrl.applyDiscount('DISCOUNT15');
       expect(ctrl.cartTotal).toEqual(75.00);
     });
+
   });
-
-
 });

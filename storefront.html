@@ -20,7 +20,7 @@
             <p>My Shopping Cart</p>
             <ul>
               <li ng-repeat='item in cartCtrl.shoppingCart track by $index'>{{item.name}} {{item.price | currency:'£'}}
-                <button class='rmv-btn' ng-click='cartCtrl.removeFromCart(item.name)'>Remove</button>
+                <button class='rmv-btn' ng-click='cartCtrl.removeFromCart($index)'>Remove</button>
               </li>
             </ul>
             <form ng-submit='cartCtrl.applyDiscount(code)'>
@@ -33,7 +33,8 @@
         <ul ng-repeat='product in storeCtrl.allProducts'>
           <li>{{product.name}}</li>
           <li>{{product.price | currency:'£'}}</li>
-          <li><button class='add-btn' ng-click='cartCtrl.addToCart(product)'>Add To Cart</button></li>
+          <li ng-show='product.quantity == 0' class='outofstock'>Out of stock</li>
+          <li ng-hide='product.quantity == 0' ><button class='add-btn' ng-click='cartCtrl.addToCart(product)'>Add To Cart</button></li>
         </ul>
       </div>
     </div>

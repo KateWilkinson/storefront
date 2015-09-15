@@ -15,6 +15,7 @@ app.controller('StoreController', [ '$http', function($http){
       store.show = true;
     }
   };
+
 }]);
 
 app.controller('CartController', function(){
@@ -27,16 +28,14 @@ app.controller('CartController', function(){
   this.addToCart = function(item){
     if(item.quantity > 0){
       self.shoppingCart.push(item);
+      item.quantity --;
       self.updateCartTotal();
     }
   };
 
-  this.removeFromCart = function(item){
-    for(var i = 0; i < self.shoppingCart.length; i++) {
-      if(self.shoppingCart[i].name === item) {
-        self.shoppingCart.splice(i, 1);
-      }
-    }
+  this.removeFromCart = function(index){
+    self.shoppingCart[index].quantity = self.shoppingCart[index].quantity + 1;
+    self.shoppingCart.splice(index,1);
     self.updateCartTotal();
   };
 

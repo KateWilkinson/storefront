@@ -73,10 +73,20 @@ describe('Store Front', function() {
     expect(element(by.id('cart-total')).getText()).toEqual('£94.00');
   });
 
-  it('item cannot be added to cart if it is out of stock', function() {
-    var cart = element.all(by.repeater('item in cartCtrl.shoppingCart track by $index'));
-    element.all(by.css('.add-btn')).get(4).click();
-    expect(cart.count()).toEqual(0);
+  it('item displays text "out of stock" if out of stock', function() {
+    var products = element.all(by.repeater('product in storeCtrl.allProducts'));
+    expect(products.get(4).element(by.css('.outofstock')).isDisplayed()).toEqual(true);
+  });
+
+  it('add to cart button is not visible if item is out of stock', function() {
+    var products = element.all(by.repeater('product in storeCtrl.allProducts'));
+    expect(products.get(4).element(by.css('.add-btn')).isDisplayed()).toEqual(false);
+  });
+
+  it('item goes out of stock when all of that items stock is added to the shopping cart', function(){
+    var products = element.all(by.repeater('product in storeCtrl.allProducts'));
+    element.all(by.css('.add-btn')).get(10).click();
+    expect(products.get(10).element(by.css('.outofstock')).isDisplayed()).toEqual(true);
   });
 
 });
