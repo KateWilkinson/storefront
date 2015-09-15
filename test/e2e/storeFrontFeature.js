@@ -83,7 +83,7 @@ describe('Store Front', function() {
     expect(products.get(4).element(by.css('.add-btn')).isDisplayed()).toEqual(false);
   });
 
-  it('item goes out of stock when all of that items stock is added to the shopping cart', function(){
+  it('item goes out of stock when all stock is added to the shopping cart', function(){
     var products = element.all(by.repeater('product in storeCtrl.allProducts'));
     element.all(by.css('.add-btn')).get(10).click();
     expect(products.get(10).element(by.css('.outofstock')).isDisplayed()).toEqual(true);

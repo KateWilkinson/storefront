@@ -47,21 +47,22 @@ app.controller('CartController', function(){
     self.cartTotal = total;
   };
 
-  this.applyDiscount = function(code) {
+  this.applyDiscount = function(discountVoucher) {
     if(!discounted){
-      if(code === 'DISCOUNT5'){
+      if(discountVoucher === 'DISCOUNT5'){
         self.cartTotal = self.cartTotal - 5;
         discounted = true;
       }
-      if(code === 'DISCOUNT10' && self.cartTotal > 50){
+      if(discountVoucher === 'DISCOUNT10' && self.cartTotal > 50){
         self.cartTotal = self.cartTotal - 10;
         discounted = true;
       }
-      if(code === 'DISCOUNT15' && self.cartTotal > 75){
+      if(discountVoucher === 'DISCOUNT15' && self.cartTotal > 75){
         for(var i = 0; i < self.shoppingCart.length; i++) {
           if(/footwear/i.test(self.shoppingCart[i].category)) {
             self.cartTotal = self.cartTotal - 15;
             discounted = true;
+            break;
           }
         }
       }
