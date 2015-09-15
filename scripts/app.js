@@ -20,13 +20,15 @@ app.controller('StoreController', [ '$http', function($http){
 app.controller('CartController', function(){
   this.shoppingCart = [];
   this.cartTotal = 0;
-  
+
   var self = this;
   var discounted = false;
 
   this.addToCart = function(item){
-    self.shoppingCart.push(item);
-    self.updateCartTotal();
+    if(item.quantity > 0){
+      self.shoppingCart.push(item);
+      self.updateCartTotal();
+    }
   };
 
   this.removeFromCart = function(item){
