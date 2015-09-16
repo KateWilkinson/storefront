@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "coveralls": "^2.11.4",
     "express": "^4.13.3",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.9",

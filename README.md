@@ -1,6 +1,6 @@
 # StoreFront
 
-[![Build Status](https://travis-ci.org/KateWilkinson/storefront.svg?branch=master)](https://travis-ci.org/KateWilkinson/storefront)
+[![Build Status](https://travis-ci.org/KateWilkinson/storefront.svg?branch=master)](https://travis-ci.org/KateWilkinson/storefront) [![Code Climate](https://codeclimate.com/github/KateWilkinson/storefront/badges/gpa.svg)](https://codeclimate.com/github/KateWilkinson/storefront)
 
 ## Summary
 
