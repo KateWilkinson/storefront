@@ -3,78 +3,91 @@
     "name":"Almond Toe Court Shoes, Patent Black",
     "category":"Women's Footwear",
     "price":99.00,
-    "quantity":5
+    "quantity":5,
+    "image": "./public/images/womens_black_patent_courts.jpg"
   },
   {
     "name":"Suede Shoes, Blue",
     "category":"Women's Footwear",
     "price":42.00,
-    "quantity":4
+    "quantity":4,
+    "image": "./public/images/womens_blue_suede.jpg"
   },
   {
     "name":"Leather Driver Saddle Loafers, Tan",
     "category":"Men's Footwear",
     "price":34.00,
-    "quantity":12
+    "quantity":12,
+    "image":"./public/images/womens_tan_loafers.jpg"
   },
   {
     "name":"Flip Flops, Red",
     "category":"Men's Footwear",
     "price":19.00,
-    "quantity":6
+    "quantity":6,
+    "image":"./public/images/mens_red_flipflop.jpg"
   },
   {
     "name":"Flip Flops, Blue",
     "category":"Men's Footwear",
     "price":19.00,
-    "quantity":0
+    "quantity":0,
+    "image":"./public/images/mens_blue_flipflop.jpg"
   },
   {
     "name":"Gold Button Cardigan, Black",
     "category":"Women's Casualwear",
     "price":167.00,
-    "quantity":6
+    "quantity":6,
+    "image":"./public/images/womens_black_cardigan.jpg"
   },
   {
     "name":"Cotton Shorts, Medium Red",
     "category":"Women's Casualwear",
     "price":30.00,
-    "quantity":5
+    "quantity":5,
+    "image":"./public/images/womens_red_shorts.jpg"
   },
   {
     "name":"Fine Stripe Short Sleeve Shirt, Grey",
     "category":"Men's Casualwear",
     "price":49.99,
-    "quantity":9
+    "quantity":9,
+    "image":"./public/images/mens_grey_shirt.jpg"
   },
   {
     "name":"Fine Stripe Short Sleeve Shirt, Green",
     "category":"Men's Casualwear",
     "price":39.99,
-    "quantity":3
+    "quantity":3,
+    "image":"./public/images/mens_green_shirt.jpg"
   },
   {
     "name":"Sharkskin Waistcoat, Charcoal",
     "category":"Men's Formalwear",
     "price":75.00,
-    "quantity":2
+    "quantity":2,
+    "image":"./public/images/mens_charcoal_waistcoat.jpg"
   },
   {
     "name":"Lightweight Patch Pocket Blazer, Deer",
     "category":"Men's Formalwear",
     "price":175.00,
-    "quantity":1
+    "quantity":1,
+    "image":"./public/images/mens_deer_jacket.jpg"
   },
   {
     "name":"Bird Print Dress, Black",
     "category":"Women's Formalwear",
     "price":270.00,
-    "quantity":10
+    "quantity":10,
+    "image":"./public/images/womens_bird_print_dress.jpg"
   },
   {
     "name":"Mid Twist Cut-Out Dress, Pink",
     "category":"Women's Formalwear",
     "price":540.00,
-    "quantity":5
+    "quantity":5,
+    "image":"./public/images/womens_pink_midi_dress.jpg"
   }
 ]

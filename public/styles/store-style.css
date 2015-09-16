@@ -1,10 +1,23 @@
-h2.navbar-brand {
+h2 {
   margin-left: 40px;
+  font-family: 'Lobster', cursive;
+}
+
+input {
+  outline: none;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.navbar-brand {
+  font-size: 25px;
 }
 
 .cart-qty {
   margin-top: 20px;
-  margin-right: -11px;
+  margin-right: -13px;
   float: right;
 }
 
@@ -26,23 +39,34 @@ h2.navbar-brand {
 }
 
 .bag-header {
-  font-size: 14px;
+  font-family: 'Lobster', cursive;
+  font-size: 17px;
   padding-bottom: 18px;
 }
 
 .rmv-btn {
   float: right;
+  font-family: 'Raleway', sans-serif;
+}
+
+.add-btn {
+  font-family: 'Raleway', sans-serif;
+}
+
+.voucher-btn {
+  font-family: 'Raleway', sans-serif;
 }
 
 #cart-total {
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 16px;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: 'Lobster', cursive;
 }
 
 .voucher-form {
   padding-bottom: 30px;
+  font-family: 'Raleway', sans-serif;
 }
 
 ul {
@@ -53,6 +77,33 @@ ul {
 li {
   font-size: 13px;
   padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+li.bag-item {
+  font-family: 'Raleway', sans-serif;
+}
+
+li.prdt-name {
+  font-family: 'Raleway', sans-serif;
+}
+
+li.prdt-price {
+  font-family: 'Lobster', cursive;
+}
+
+.item-container {
+  width: 950px;
+  margin: 0 auto;
+}
+
+.clothing-item {
+  width: 300px;
+  height: 550px;
+}
+
+.prdt-img {
+  width: 250px;
 }
 
 .outofstock {
