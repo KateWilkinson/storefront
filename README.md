@@ -4,7 +4,9 @@
 
 ## Summary
 
-An implementation of a responsive website for a clothes retailer, built as a single page application in Javascript and AngularJs using TDD and Agile methodologies.
+An implementation of a responsive website for a clothes retailer, built as a single page application in JavaScript with AngularJS using TDD and Agile methodologies.
+
+![Screenshot](./public/screenshots/screenshot1.jpg?raw=true)
 
 ## How to run
 
@@ -34,6 +36,11 @@ protractor test/e2e/conf.js
 
 ## Overview of code layout
 
+* HTML file for view - ```./storefront.html```
+* Angular controllers - ``` ./scripts/app.js```
+* Unit tests in ```./test/CartController.spec.js``` & ```./test/StoreController.spec.js```
+* Feature tests in ```./test/e2e/storeFrontFeature.js```
+
 ## User stories & Implementation
 
 ### User stories
@@ -52,7 +59,7 @@ protractor test/e2e/conf.js
 
 ## Technologies used
 
-* Javascript; AngularJS; HTML; CSS & Bootstrap
+* JavaScript; AngularJS; Express; HTML; CSS & Bootstrap
 * Tested using Karma and Protractor
 
 ## Further improvements

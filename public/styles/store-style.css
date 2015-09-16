@@ -32,6 +32,7 @@ input {
 }
 
 .shopping-bag {
+  background-color:
   text-align: left;
   padding-left: 100px;
   padding-top: 30px;
@@ -40,6 +41,7 @@ input {
 
 .bag-header {
   font-family: 'Lobster', cursive;
+  color: #424242;
   font-size: 17px;
   padding-bottom: 18px;
 }
@@ -59,6 +61,7 @@ input {
 
 #cart-total {
   font-size: 16px;
+  color: #424242;
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: 'Lobster', cursive;
