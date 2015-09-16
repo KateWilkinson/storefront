@@ -13,5 +13,3 @@ before_script:
   - webdriver-manager update
   - webdriver-manager start > /dev/null &
   - sleep 3
-after_success:
-  - coveralls

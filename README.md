@@ -16,7 +16,6 @@ cd storefront
 npm install
 bower install
 node server.js
-
 ```
 
 To run unit tests
