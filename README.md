@@ -1,5 +1,7 @@
 # StoreFront
 
+https://travis-ci.org/KateWilkinson/storefront.svg?branch=master
+
 ## Summary
 
 An implementation of a responsive website for a clothes retailer, built as a single page application in Javascript and AngularJs using TDD and Agile methodologies.
