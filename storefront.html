@@ -4,39 +4,46 @@
     <meta charset="utf-8">
     <title>StoreFront</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="public/styles/store-style.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="scripts/app.js"></script>
   </head>
 
-  <body>
-    <h1>My Store</h1>
-    <div ng-controller='StoreController as storeCtrl'>
-      <div ng-controller='CartController as cartCtrl'>
-        <input type='button' id='shopping-cart' value='Cart' ng-click='storeCtrl.showCart()'></input>
-        <div ng-show='storeCtrl.show'>
-          <div>
-            <p>My Shopping Cart</p>
-            <ul>
-              <li ng-repeat='item in cartCtrl.shoppingCart track by $index'>{{item.name}} {{item.price | currency:'£'}}
-                <button class='rmv-btn' ng-click='cartCtrl.removeFromCart($index)'>Remove</button>
-              </li>
-            </ul>
-            <form ng-submit='cartCtrl.applyDiscount(code)'>
-              <input ng-model='code' type='text' placeholder='enter discount code' id='voucher-input'></input>
-              <input type='submit' class='voucher-btn' value='apply discount'></input>
-            </form>
-            <div id='cart-total'>{{cartCtrl.cartTotal | currency:'£'}}</div>
-          </div>
-        </div>
-        <ul ng-repeat='product in storeCtrl.allProducts'>
-          <li>{{product.name}}</li>
-          <li>{{product.price | currency:'£'}}</li>
-          <li ng-show='product.quantity == 0' class='outofstock'>Out of stock</li>
-          <li ng-hide='product.quantity == 0' ><button class='add-btn' ng-click='cartCtrl.addToCart(product)'>Add To Cart</button></li>
-        </ul>
+  <body ng-controller='StoreController as storeCtrl'>
+    <div ng-controller='CartController as cartCtrl'>
+    <nav class='navbar navbar-default'>
+      <div class='container-fluid'>
+        <h2 class='navbar-brand'>StoreFront</h2>
+        <input type='button' class='btn btn-default cart-btn' id='shopping-cart' ng-click='storeCtrl.showCart()'></input>
+        <div class='badge cart-qty'>{{cartCtrl.shoppingCart.length}}</div>
       </div>
+    </nav>
+      <div ng-show='storeCtrl.show'>
+        <div class='shopping-bag'>
+          <p class='bag-header'>My Shopping Bag</p>
+          <ul>
+            <li ng-repeat='item in cartCtrl.shoppingCart track by $index'>
+              {{item.name}} {{item.price | currency:'£'}}
+              <button class='rmv-btn btn btn-default btn-xs' ng-click='cartCtrl.removeFromCart($index)'>Remove</button>
+            </li>
+          </ul>
+          <div id='cart-total'>Total {{cartCtrl.cartTotal | currency:'£'}}</div>
+          <form class='voucher-form' ng-submit='cartCtrl.applyDiscount(code)'>
+            <input ng-model='code' type='text' placeholder='enter discount code' id='voucher-input'></input>
+            <input type='submit' class='voucher-btn btn btn-default btn-xs' value='apply discount'></input>
+          </form>
+        </div>
+      </div>
+      <ul class='col-md-4' ng-repeat='product in storeCtrl.allProducts'>
+        <li>{{product.name}}</li>
+        <li>{{product.price | currency:'£'}}</li>
+        <li ng-show='product.quantity == 0' class='outofstock'>Out of stock</li>
+        <li ng-hide='product.quantity == 0'>
+          <button class='add-btn btn btn-default btn-xs' ng-click='cartCtrl.addToCart(product)'>Add To Bag</button>
+        </li>
+      </ul>
     </div>
   </body>
 </html>

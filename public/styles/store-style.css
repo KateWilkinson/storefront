@@ -1,0 +1,60 @@
+h2.navbar-brand {
+  margin-left: 40px;
+}
+
+.cart-qty {
+  margin-top: 20px;
+  margin-right: -11px;
+  float: right;
+}
+
+.cart-btn {
+  width: 50px;
+  margin-top: 27px;
+  float: right;
+  background-image: url('../images/bag.png');
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shopping-bag {
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.bag-header {
+  font-size: 14px;
+  padding-bottom: 18px;
+}
+
+.rmv-btn {
+  float: right;
+}
+
+#cart-total {
+  font-size: 13px;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.voucher-form {
+  padding-bottom: 30px;
+}
+
+ul {
+  list-style-type: none;
+  max-width: 450px;
+}
+
+li {
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+.outofstock {
+  font-weight: bold;
+}

@@ -32,7 +32,7 @@ describe('Store Front', function() {
   it('displays current total price of the shopping cart', function(){
     element.all(by.css('.add-btn')).get(0).click();
     element(by.id('shopping-cart')).click();
-    expect(element(by.id('cart-total')).getText()).toEqual('£99.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Total £99.00');
   });
 
   it('removes item from shopping cart when remove button is clicked', function(){
@@ -47,7 +47,7 @@ describe('Store Front', function() {
     element.all(by.css('.add-btn')).get(0).click();
     element(by.id('shopping-cart')).click();
     element(by.css('.rmv-btn')).click();
-    expect(element(by.id('cart-total')).getText()).toEqual('£0.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Total £0.00');
   });
 
   it('has an input field for entering discount vouchers', function(){
@@ -60,7 +60,7 @@ describe('Store Front', function() {
     element.all(by.css('.add-btn')).get(0).click();
     element(by.id('voucher-input')).sendKeys('DISCOUNT5');
     element(by.css('.voucher-btn')).click();
-    expect(element(by.id('cart-total')).getText()).toEqual('£94.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Total £94.00');
   });
 
   it('discount cannot be applied twice', function(){
@@ -70,7 +70,7 @@ describe('Store Front', function() {
     element(by.css('.voucher-btn')).click();
     element(by.id('voucher-input')).sendKeys('DISCOUNT5');
     element(by.css('.voucher-btn')).click();
-    expect(element(by.id('cart-total')).getText()).toEqual('£94.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Total £94.00');
   });
 
   it('item displays text "out of stock" if out of stock', function() {
