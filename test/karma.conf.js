@@ -31,6 +31,6 @@ module.exports = function(config) {
 
     browsers: ['PhantomJS'],
 
-    singleRun: false
+    singleRun: true
   });
 };
