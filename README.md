@@ -31,6 +31,8 @@ webdriver-manager start
 protractor test/e2e/conf.js
 ```
 
+## Overview of code layout
+
 ## User stories & Implementation
 
 ### User stories
