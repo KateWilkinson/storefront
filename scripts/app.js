@@ -26,6 +26,7 @@ app.controller('CartController', function(){
   var discounted = false;
 
   this.addToCart = function(item){
+    discounted = false;
     if(item.quantity > 0){
       self.shoppingCart.push(item);
       item.quantity --;
@@ -34,6 +35,7 @@ app.controller('CartController', function(){
   };
 
   this.removeFromCart = function(index){
+    discounted = false;
     self.shoppingCart[index].quantity = self.shoppingCart[index].quantity + 1;
     self.shoppingCart.splice(index,1);
     self.updateCartTotal();
@@ -45,6 +47,24 @@ app.controller('CartController', function(){
       total = total + self.shoppingCart[i].price;
     }
     self.cartTotal = total;
+  };
+
+  this.displayDiscount = function(){
+    if(!discounted){
+      if (self.cartTotal > 75){
+        for(var i = 0; i < self.shoppingCart.length; i++) {
+          if(/footwear/i.test(self.shoppingCart[i].category)){
+            return 'DISCOUNT15';
+          }
+        }
+      }
+      if (self.cartTotal > 50){
+        return 'DISCOUNT10';
+      }
+      if (self.shoppingCart.length > 0){
+        return 'DISCOUNT5';
+      }
+    }
   };
 
   this.applyDiscount = function(discountVoucher) {

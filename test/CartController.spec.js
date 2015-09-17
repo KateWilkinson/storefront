@@ -72,6 +72,24 @@ describe('CartController', function() {
     });
   });
 
+  describe('display discount', function() {
+    it('returns £5 discount code when there is at least one item in the cart', function() {
+      ctrl.addToCart(cardigan);
+      expect(ctrl.displayDiscount()).toEqual('DISCOUNT5');
+    });
+    it('returns £10 discount code when shopping cart total is over £50', function() {
+      ctrl.addToCart(cardigan);
+      ctrl.addToCart(skirt);
+      expect(ctrl.displayDiscount()).toEqual('DISCOUNT10');
+    });
+    it('returns £15 discount code when shopping cart total is over £75 and includes footwear', function() {
+      ctrl.addToCart(cardigan);
+      ctrl.addToCart(skirt);
+      ctrl.addToCart(sandals);
+      expect(ctrl.displayDiscount()).toEqual('DISCOUNT15');
+    });
+  });
+
   describe('apply discount', function() {
     it('applies £5 discount to current cart total when correct code is input', function() {
       ctrl.addToCart(cardigan);
@@ -145,4 +163,5 @@ describe('CartController', function() {
     });
 
   });
+  
 });

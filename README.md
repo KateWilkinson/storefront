@@ -43,6 +43,8 @@ protractor test/e2e/conf.js
 * Unit tests in ```./test/CartController.spec.js``` & ```./test/StoreController.spec.js```
 * Feature tests in ```./test/e2e/storeFrontFeature.js```
 
+The discount codes that can be used are 'DISCOUNT5' which discounts £5 from any order, 'DISCOUNT10' which discounts £10 from an order over £50, and 'DISCOUNT15' which discounts £15 from an order over £75 which includes at least one footwear item.
+
 ## User stories & Implementation
 
 ### User stories
@@ -71,9 +73,9 @@ I decided to use the Angular framework for this project because the brief leant 
 * Node; JavaScript; AngularJS; Express; HTML; CSS & Bootstrap
 * Tested using Karma and Protractor
 
-## Further tasks & improvements
+## To do & further improvements
 
-* Extract discount codes into a separate file and refactor applyDiscount function so that different discounts can be applied as needed and code is more maintainable. Extract all voucher functionality into a separate controller.
+* Extract discount codes into a separate file, to enable refactoring of discount functionality. Different discounts should be able to be applied as needed and code should be more maintainable. Extract all voucher functionality into a separate controller.
 * Deploy to Heroku.
 * Add functionality for the user to filter the products they see based on category or price.
 * Look into setting up a MongoDB database to store the product information so the app can be scaled up as needed.

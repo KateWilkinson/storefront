@@ -72,6 +72,11 @@ input {
   font-family: 'Raleway', sans-serif;
 }
 
+.display-discount {
+  font-family: 'Raleway', sans-serif;
+  padding-bottom: 10px;
+}
+
 ul {
   list-style-type: none;
   max-width: 450px;
@@ -111,4 +116,5 @@ li.prdt-price {
 
 .outofstock {
   font-weight: bold;
+  font-family: 'Raleway', sans-serif;
 }

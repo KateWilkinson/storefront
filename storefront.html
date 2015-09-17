@@ -15,13 +15,13 @@
 
   <body ng-controller='StoreController as storeCtrl'>
     <div ng-controller='CartController as cartCtrl'>
-    <nav class='navbar navbar-default'>
-      <div class='container-fluid'>
-        <h2 class='navbar-brand'>StoreFront</h2>
-        <input type='button' class='btn btn-default cart-btn' id='shopping-cart' ng-click='storeCtrl.showCart()'></input>
-        <div class='badge cart-qty'>{{cartCtrl.shoppingCart.length}}</div>
-      </div>
-    </nav>
+      <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+          <h2 class='navbar-brand'>StoreFront</h2>
+          <input type='button' class='btn btn-default cart-btn' id='shopping-cart' ng-click='storeCtrl.showCart()'></input>
+          <div class='badge cart-qty'>{{cartCtrl.shoppingCart.length}}</div>
+        </div>
+      </nav>
       <div ng-show='storeCtrl.show'>
         <div class='shopping-bag'>
           <p class='bag-header'>Shopping Bag</p>
@@ -32,6 +32,9 @@
             </li>
           </ul>
           <div id='cart-total'>Total {{cartCtrl.cartTotal | currency:'£'}}</div>
+          <div class='display-discount' ng-show='cartCtrl.displayDiscount()'>
+            Your shopping bag qualifies for a discount! Enter {{cartCtrl.displayDiscount()}} in the field below
+          </div>
           <form class='voucher-form' ng-submit='cartCtrl.applyDiscount(code)'>
             <input ng-model='code' type='text' placeholder='enter discount code' id='voucher-input'></input>
             <input type='submit' class='voucher-btn btn btn-default btn-xs' value='apply'></input>
