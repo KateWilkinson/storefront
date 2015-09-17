@@ -8,9 +8,11 @@ An implementation of a responsive website for a clothes retailer, built as a sin
 
 ![Screenshot](./public/screenshots/screenshot1.jpg?raw=true)
 
-## How to run
+## How to install & run
 
-Run the following commands in the command line to install locally, and then go to ```localhost:8000/storefront.html``` to run the code in the browser
+You'll need to have Git, Node (with npm) and Bower installed
+
+Run the following commands in the command line to install locally, and then go to ```localhost:8000/storefront.html``` to load in the browser
 
 ```
 git clone https://github.com/KateWilkinson/storefront.git
@@ -56,10 +58,25 @@ protractor test/e2e/conf.js
 
 ### Implementation
 
+I decided to use the Angular framework for this project because the brief leant itself to designing a primarily front-end based, responsive SPA with good UX. I made the following decisions when implementing my design:
+
+* Product information is stored in a JSON file and called in using a service. Given that the app is currently on a limited scale, it seemed sensible to call data in this way rather than set up a database.
+* I modelled the domain with three key components - my products, stored as JSON, my store controller which handles calling in those products and displaying them, and my cart controller which handles the movement of those products into and out of the shopping bag.
+* I decided that vouchers should be handled as discount codes, and that a user should only be able to apply one voucher at a time. The user is presented with a discount code to apply when their shopping bag meets the required parameters, rather than providing a full list of codes and requirements.
+* I used TDD to build the app iteratively, beginning with the first user story and writing unit tests to ensure back end logic was working correctly before moving onto the front end functionality, which I tested with Protractor. I tried to ensure that I had fully tested code which satisfied each user story before moving onto the next.
+* UX is important for this application - I designed the page with a 3*3 grid layout (using Bootstrap) with clean background and navigation and large images. The shopping bag drops into view when the 'bag' button is clicked but there is a badge visible at all times displaying the number of items in the bag.
 
 ## Technologies used
 
-* JavaScript; AngularJS; Express; HTML; CSS & Bootstrap
+* Node; JavaScript; AngularJS; Express; HTML; CSS & Bootstrap
 * Tested using Karma and Protractor
 
-## Further improvements
+## Further tasks & improvements
+
+* Extract discount codes into a separate file and refactor applyDiscount function so that different discounts can be applied as needed and code is more maintainable. Extract all voucher functionality into a separate controller.
+* Deploy to Heroku.
+* Add functionality for the user to filter the products they see based on category or price.
+* Look into setting up a MongoDB database to store the product information so the app can be scaled up as needed.
+* Set up AWS for image hosting so the app can be scaled up as needed.
+* Look into how I could handle payments, possibly using Stripe.
+* Enhance design - add current shopping bag total to navbar & potentially move product information onto a rollover on top of the product image.
