@@ -8,42 +8,6 @@ An implementation of a responsive website for a clothes retailer, built as a sin
 
 ![Screenshot](./public/screenshots/screenshot1.jpg?raw=true)
 
-## How to install & run
-
-You'll need to have Git, Node (with npm) and Bower installed
-
-Run the following commands in the command line to install locally, and then go to ```localhost:8000/storefront.html``` to load in the browser
-
-```
-git clone https://github.com/KateWilkinson/storefront.git
-cd storefront
-npm install
-bower install
-node server.js
-```
-
-To run unit tests
-
-```
-karma start test/karma.conf.js
-```
-
-To run feature tests ( ensure server and webdriver are left running in the terminal )
-
-```
-node server.js
-webdriver-manager start
-protractor test/e2e/conf.js
-```
-
-## Overview of code layout
-
-* HTML file for view - ```./storefront.html```
-* Angular controllers - ``` ./scripts/app.js```
-* Unit tests in ```./test/CartController.spec.js``` & ```./test/StoreController.spec.js```
-* Feature tests in ```./test/e2e/storeFrontFeature.js```
-
-The discount codes that can be used are 'DISCOUNT5' which discounts £5 from any order, 'DISCOUNT10' which discounts £10 from an order over £50, and 'DISCOUNT15' which discounts £15 from an order over £75 which includes at least one footwear item.
 
 ## User stories & Implementation
 
@@ -82,3 +46,40 @@ I decided to use the Angular framework for this project because the brief leant 
 * Set up AWS for image hosting so the app can be scaled up as needed.
 * Look into how I could handle payments, possibly using Stripe.
 * Enhance design - add current shopping bag total to navbar & potentially move product information onto a rollover on top of the product image.
+
+## How to install & run
+
+You'll need to have Git, Node (with npm) and Bower installed
+
+Run the following commands in the command line to install locally, and then go to ```localhost:8000/storefront.html``` to load in the browser
+
+```
+git clone https://github.com/KateWilkinson/storefront.git
+cd storefront
+npm install
+bower install
+node server.js
+```
+
+To run unit tests
+
+```
+karma start test/karma.conf.js
+```
+
+To run feature tests ( ensure server and webdriver are left running in the terminal )
+
+```
+node server.js
+webdriver-manager start
+protractor test/e2e/conf.js
+```
+
+## Overview of code layout
+
+* HTML file for view - ```./storefront.html```
+* Angular controllers - ``` ./scripts/app.js```
+* Unit tests in ```./test/CartController.spec.js``` & ```./test/StoreController.spec.js```
+* Feature tests in ```./test/e2e/storeFrontFeature.js```
+
+The discount codes that can be used are 'DISCOUNT5' which discounts £5 from any order, 'DISCOUNT10' which discounts £10 from an order over £50, and 'DISCOUNT15' which discounts £15 from an order over £75 which includes at least one footwear item.
